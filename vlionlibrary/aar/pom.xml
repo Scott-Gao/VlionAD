@@ -6,7 +6,7 @@
 
     <groupId>com.github.scott-gao</groupId>
     <artifactId>vlionlibrary</artifactId>
-    <version>1.0.1</version>
+    <version>3.4</version>
 
     <dependencies>
         <dependency>
@@ -18,7 +18,7 @@
 
     <distributionManagement>
         <snapshotRepository>
-            <id>ossrh</id>
+            <id>OSSRH-44506</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
@@ -64,10 +64,12 @@
                         <checkModificationExclude>release-pom.xml</checkModificationExclude>
 
                         <checkModificationExclude>jdonframework.iml</checkModificationExclude>
-                        <checkModificationExclude>JdonAccessory/jdon-hibernate3x/jdon-hibernate3x.iml</checkModificationExclude>
+                        <checkModificationExclude>JdonAccessory/jdon-hibernate3x/jdon-hibernate3x.iml
+                        </checkModificationExclude>
                         <checkModificationExclude>JdonAccessory/jdon-jdbc/jdon-jdbc.iml</checkModificationExclude>
                         <checkModificationExclude>JdonAccessory/jdon-remote/jdon-remote.iml</checkModificationExclude>
-                        <checkModificationExclude>JdonAccessory/jdon-struts1x/jdon-struts1x.iml</checkModificationExclude>
+                        <checkModificationExclude>JdonAccessory/jdon-struts1x/jdon-struts1x.iml
+                        </checkModificationExclude>
 
                     </checkModificationExcludes>
                 </configuration>
@@ -116,7 +118,6 @@
             </plugin>
 
 
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -153,22 +154,21 @@
                     </execution>
                 </executions>
             </plugin>
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
 
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <executions>
-                <execution>
-                    <id>sign-artifacts</id>
-                    <phase>verify</phase>
-                    <goals>
-                        <goal>sign</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
     </build>
 
 
